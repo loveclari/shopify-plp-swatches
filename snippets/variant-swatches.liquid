@@ -1,0 +1,34 @@
+<!--Logic for the Swarches-->
+{% comment %}
+  This snippet generates swatches for product variants based on the 'Color' option.
+  It creates buttons for each color variant, which can be styled and used to select the variant.
+{% endcomment %}
+
+<div class="plp-swatches" data-product-id="{{ product.id }}">
+    {% assign color_option_index = nil %}
+    {% for option in product.options_with_values %}
+      {% if option.name == 'Color' %}
+        {% assign color_option_index = forloop.index0 %}
+      {% endif %}
+    {% endfor %}
+  
+    {% if color_option_index != nil %}
+      {% for variant in product.variants %}
+        {% assign color = variant.options[color_option_index] %}
+        <button
+          type="button"
+          class="swatch"
+          style="background-color: {{ color | downcase }};"
+          data-product-id="{{ product.id }}"
+          data-variant-id="{{ variant.id }}"
+          data-image="{{ variant.featured_image.src | img_url: '400x' }}"
+          data-available="{{ variant.available }}"
+          aria-label="{{ color }}"
+        ></button>
+      {% endfor %}
+    {% endif %}
+  
+    <button class="add-to-cart-btn hidden" data-product-id="{{ product.id }}" disabled>
+      Add to Cart
+    </button>
+  </div>

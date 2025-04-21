@@ -1,4 +1,33 @@
 
+.swatch {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    margin: 5px 4px 0 0;
+    cursor: pointer;
+    display: inline-block;
+  }
+  .swatch.active {
+    border-color: black !important;
+  }
+  
+  .plp-swatches {
+    display: flex;
+    gap: 6px;
+    margin-top: 10px;
+  }
+  
+  .plp-swatches .swatch {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    padding: 0;
+    outline: none;
+  }
+  
   .card-wrapper {
     color: inherit;
     height: 100%;
