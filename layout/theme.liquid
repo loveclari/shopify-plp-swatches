@@ -372,6 +372,23 @@
     {%- if settings.cart_type == 'drawer' -%}
       <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
+
+    {{ 'plp-swatches.js' | asset_url | script_tag }}
+
+    <div id="swatch-cart-success" style="
+  display:none;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #4caf50;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 6px;
+  z-index: 9999;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+">
+  Added to cart!
+</div>
     
   </body>
 </html>
